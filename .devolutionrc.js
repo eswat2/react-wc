@@ -4,7 +4,7 @@
  what about shipping the BEST for the bleeding edge browsers?
  (requires SSR or feature detection for proper shipping)
  */
-const USE_MODERN = false
+const USE_MODERN = true
 
 module.exports = Promise.resolve({
   // could be async
@@ -71,7 +71,9 @@ module.exports = Promise.resolve({
      */
     esm: USE_MODERN
       ? {
-          chrome: "70", // if baseline bundle used preset-modern use some "big" target, but ship only for this "big" target!
+          chrome: "last 2 versions", // if baseline bundle used preset-modern use some "big" target, but ship only for this "big" target!
+          firefox: "last 2 versions",
+          edge: "last 2 versions",
         }
       : {
           // this controls polyfills for ESM bundle
